@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+  background: linear-gradient(135deg, #95b4cd, #3588ae);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.box {
+  max-width: 330px;
+  width: 100%;
+  padding: 22px;
+  border-radius: 18px;
+  background: whitesmoke;
+  box-shadow: 0 10px 30px #2d2c2f;
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  margin-bottom: 16px;
+  color: #3588ae;
+  font-weight: 600;
+  text-align: center;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #95b4cd, #3588ae);
+  color: whitesmoke;
+  font-size: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px #95b4cd;
+}
+    </style>
+</head>
+<body>
+    <form>
+    <div class="box 1">
+        <h2>Variable 1</h2>
+        <input type="number" id="num1" placeholder="Enter First Number">
+        <h2>Variable 2</h2>
+        <input type="number" id="num2" placeholder="Enter Second Number">
+        <h2>Choose Operation</h2>
+        <select id="results">
+            <option value="add">Addition</option>
+            <option value="subtract">Subtraction</option>
+            <option value="multiply">Multiplication</option>
+            <option value="divide">Division</option>
+        </select>
+        <br>
+        <button type="button" onclick="displayMe()">Calculate</button>
+    </div>
+</form>
+
+<script>
+function displayMe(){
+    let num1 = Number(document.getElementById("num1").value);
+    let num2 = Number(document.getElementById("num2").value);
+    let operation = document.getElementById("results").value;
+    let result;
+
+    if (operation === "add"){
+        result = num1 + num2;
+    }
+    else if (operation === "subtract"){
+        result = num1 - num2;
+    }
+    else if (operation === "multiply"){
+        result = num1 * num2;
+    }
+    else if (operation === "divide"){
+        if (num2 === 0){
+            alert("Cannot Divide by Zero");
+            return;
+        }
+        if (num1 === 0){
+            alert("Cannot Divide by Zero");
+            return;
+        }
+        result = num1 / num2;
+    }
+
+    alert("The result is: " + result);
+}
+</script>
+
+</body>
+</html>
